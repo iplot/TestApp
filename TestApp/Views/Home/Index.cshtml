@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css"/>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/Frontend/MyController.js"></script>
+</head>
+<body ng-app="app">
+    <div ng-controller="MyController">
+        <div class="block">
+            {{folderInfo.HostName}}
+        </div>
+        <div class="block">
+            <p>Curent dir: "{{folderInfo.CurrentDir}}"</p>
+            <br/>
+            <p> 10mb count: {{folderInfo.LessThen10MbFilesAmount}}</p>
+            <p> 10mb and 50mb count: {{folderInfo.Between10And50MbFilesAmount}}</p>
+            <p> 100mb count: {{folderInfo.MoreThen100MbFilesAmount}}</p>
+
+            <br/>
+            <p>Browse</p>
+            <ul>
+                <li ng-repeat="folderName in folderInfo.BrowseList">
+                    <a href="" ng-click="linkClick($index)">{{folderName}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
